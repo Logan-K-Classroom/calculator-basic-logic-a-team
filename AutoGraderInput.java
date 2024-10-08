@@ -8,6 +8,11 @@ public class AutoGraderInput {
         return scanner.nextDouble();
     }
 
+    //Method to get operator input
+    public static String getOperator(){
+        return scanner.next();
+    }
+    
     // Method to get the second input
     public static double getSecondNumber() {
         return scanner.nextDouble();
