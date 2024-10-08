@@ -1,0 +1,132 @@
+name: Autograding Tests
+'on':
+- workflow_dispatch
+- repository_dispatch
+permissions:
+  checks: write
+  actions: read
+  contents: read
+jobs:
+  run-autograding-tests:
+    runs-on: ubuntu-latest
+    if: github.actor != 'github-classroom[bot]'
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+    - name: Addition Test
+      id: addition-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Addition Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          16
+          +
+          5
+        expected-output: '21'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: Subtraction Test
+      id: subtraction-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Subtraction Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          88
+          -
+          11
+        expected-output: '77'
+        comparison-method: contains
+        timeout: 1
+        max-score: 1
+    - name: Multiplication Test
+      id: multiplication-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Multiplication Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          4
+          *
+          12
+        expected-output: '48'
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: Division Test Simple
+      id: division-test-simple
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Division Test Simple
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          16
+          /
+          4
+        expected-output: '4'
+        comparison-method: contains
+        timeout: 1
+        max-score: 2
+    - name: Divide by Zero Test
+      id: divide-by-zero-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Divide by Zero Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          0
+          /
+          0
+        expected-output: Error
+        comparison-method: contains
+        timeout: 1
+        max-score: 5
+    - name: Exponent Test
+      id: exponent-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Exponent Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          2
+          ^
+          3
+        expected-output: '8'
+        comparison-method: contains
+        timeout: 1
+        max-score: 3
+    - name: Invalid Operator Test
+      id: invalid-operator-test
+      uses: classroom-resources/autograding-io-grader@v1
+      with:
+        test-name: Invalid Operator Test
+        setup-command: javac *.java
+        command: java Calculator
+        input: |-
+          4
+          a
+          6
+        expected-output: Error
+        comparison-method: contains
+        timeout: 1
+        max-score: 5
+    - name: Autograding Reporter
+      uses: classroom-resources/autograding-grading-reporter@v1
+      env:
+        ADDITION-TEST_RESULTS: "${{steps.addition-test.outputs.result}}"
+        SUBTRACTION-TEST_RESULTS: "${{steps.subtraction-test.outputs.result}}"
+        MULTIPLICATION-TEST_RESULTS: "${{steps.multiplication-test.outputs.result}}"
+        DIVISION-TEST-SIMPLE_RESULTS: "${{steps.division-test-simple.outputs.result}}"
+        DIVIDE-BY-ZERO-TEST_RESULTS: "${{steps.divide-by-zero-test.outputs.result}}"
+        EXPONENT-TEST_RESULTS: "${{steps.exponent-test.outputs.result}}"
+        INVALID-OPERATOR-TEST_RESULTS: "${{steps.invalid-operator-test.outputs.result}}"
+      with:
+        runners: addition-test,subtraction-test,multiplication-test,division-test-simple,divide-by-zero-test,exponent-test,invalid-operator-test
