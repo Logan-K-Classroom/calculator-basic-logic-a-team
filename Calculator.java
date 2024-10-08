@@ -21,15 +21,19 @@ public class Calculator {
                 System.out.print(result);
                 break;
             case "/":
+                if(secondNumber == 0){
+                    System.out.print("Error: Can't Divide by Zero");
+                }else{
                 result = firstNumber / secondNumber;
                 System.out.print(result);
+                }
                 break;
             case "^":
                 result = Math.pow(firstNumber, secondNumber);
                 System.out.print(result);
                 break;
             default:
-                System.out.print("Invalid Operator");
+                System.out.print("Error: Invalid Operator");
                 break;
 
         }
