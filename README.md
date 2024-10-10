@@ -1,59 +1,59 @@
-# Calculator Project for Controls Subteam - Team Steam Robotics (FRC 5119)
+# Calculator: Basic Logic - Controls Subteam - Team Steam Robotics (FRC 5119)
 
 ## Overview
-Welcome to the Controls Subteam Calculator Project! In this assignment, you will work collaboratively to create a basic calculator using Java. The focus is on implementing fundamental arithmetic operations, which will be tested using variables stored in pre-defined inputs. This project emphasizes working with doubles, basic mathematical operations, and correctly printing results to the console.
+
+Continuing from your previous work on the Controls Subteam Calculator Project, you will now create a basic calculator using Java logic structures. This project, titled "Calculator: Basic Logic," focuses on implementing arithmetic operations using conditionals such as `if` statements, `if-else` conditions, and logic operators to determine the appropriate operation based on user input.
 
 By completing this project, you will:
-- Learn to implement math operations in Java using variables.
+
+- Learn to implement math operations in Java using variables and logic operators.
+- Gain experience with error handling for invalid or edge-case operations.
 - Work with GitHub for version control, emphasizing branching, merging, and collaboration.
 
-## Assignment Structure
-The following files are provided to you:
+## Assignment Requirements
 
-- `Calculator.java` (Unused for this assignment)
-- `Addition.java`
-- `Subtraction.java`
-- `Multiplication.java`
-- `Division.java`
-- `Exponent.java`
+For this assignment, you will integrate all arithmetic operations into a single `Calculator.java` file. The other files (`Addition.java`, `Subtraction.java`, `Multiplication.java`, `Division.java`, `Exponent.java`) will be left alone and may be used in a future project. You will utilize Java logic to determine the correct operation to perform based on user input and ensure that any invalid input or operations are appropriately handled.
 
-Each file corresponds to a specific arithmetic operation. The inputs are already provided in the form of two variables, `firstNumber` and `secondNumber`, so you don't need to worry about setting up input handling. Your task is to apply the appropriate math logic to these variables and print the correct result to the console.
+### New Requirements
 
-## Objectives
-- **Teamwork and Branching:** Work in groups, with each team member responsible for different files. You will use separate branches to implement the logic for the operation in each file, then merge your changes into the main project.
-- **Mathematical Operations and Output:** Write the logic for the arithmetic operation assigned to each file using the variables `firstNumber` and `secondNumber`. After performing the operation, you must ensure that the correct result is printed to the console, as this will be tested during manual grading.
+- You will be provided with an additional **String** input called `operator`, which will represent the operation to be performed (`+`, `-`, `*`, `/`, `^`).
+- Your task is to implement logic in the `Calculator.java` file to determine the appropriate arithmetic operation based on the value of `operator`.
+- The program should also handle invalid operations and division by zero by printing a message including `"Error"` to the console in such cases (ex: "Error: Division by zero").
 
-## Tasks
-For each of the following files, implement the required logic using **double** variables and print the correct result to the console:
+### Objectives
 
-1. **Addition.java:** Implement the logic to add `firstNumber` and `secondNumber` and print the result.
-2. **Subtraction.java:** Implement the logic to subtract `secondNumber` from `firstNumber` and print the result.
-3. **Multiplication.java:** Implement the logic to multiply `firstNumber` by `secondNumber` and print the result.
-4. **Division.java:** Implement the logic to divide `firstNumber` by `secondNumber` and print the result.
-5. **Exponent.java:** Implement the logic to raise `firstNumber` to the power of `secondNumber` and print the result.
+- **Java Logic Implementation:** Use `if` statements, `if-else` conditions, and logic operators to handle different operations in a single file.
+- **Error Handling:** Implement logic to print `"Error"` for invalid operations, such as unsupported operators or division by zero.
+- **Consolidation:** All operations from Part 1 (`Addition.java`, `Subtraction.java`, `Multiplication.java`, `Division.java`, `Exponent.java`) should now be implemented in the `Calculator.java` file, based on the `operator` input.
 
-### Boilerplate Overview
-Each Java file includes:
-- Pre-defined variables `firstNumber` and `secondNumber`, which are already set up for you.
-- Your task is to write the appropriate mathematical logic and print the result to the console.
+### Tasks
 
-## Guidelines
-- **Branching:** Each team member must work on a separate file using their own branch. This ensures that each operation is developed independently.
-- **Merging:** Once a member completes their task on their branch, the team should review and merge the changes into the main project to ensure the full functionality of the calculator.
-- **Version Control:** You are expected to use GitHub for tracking progress and collaboration. 
-  - Make frequent commits, each one clearly reflecting the work done. For example:
-    - "Added addition logic to Addition.java"
-    - "Implemented exponent operation in Exponent.java"
-  - Ensure commit messages are specific and informative, providing a clear history of the work completed.
+1. Modify the `Calculator.java` file to include:
+   - An additional input: `String operator`.
+   - Logic to determine which arithmetic operation to perform based on the value of `operator`.
+   - Error handling for invalid operations, including division by zero.
+2. Use **double** variables `firstNumber` and `secondNumber` as before, and print the result of the operation to the console.
+3. If the `operator` is not one of the specified symbols (`+`, `-`, `*`, `/`, `^`), or if there is a division by zero, print `"Error"` to the console.
+
+### Guidelines
+
+- **Branching and Merging:** Continue to use branches for development, with team members collaborating to implement and review the changes in `Calculator.java`.
+- **Version Control:** Maintain good version control practices, with specific, informative commit messages and frequent commits.
+
+### Example Commit Messages
+
+- `Added logic for handling + operator in Calculator.java`
+- `Implemented error handling for division by zero in Calculator.java`
 
 ## Grading Criteria
-Your work will be evaluated based on:
-- **Correctness of Output:** Each file will be graded based on whether the correct input results in the correct output for the operation.
-- **Console Output:** The result must be printed correctly to the console for each operation.
-- **Version Control:** Proper use of branches and consistent, clear commits that reflect your progress. Branches must be merged properly without conflicts.
 
-Each file will be graded separately, and points will be awarded based on the correctness of the respective operation.
+Your work will be evaluated based on:
+
+- **Correctness of Output:** The `Calculator.java` file will be graded based on whether the correct input results in the correct output for each operation.
+- **Error Handling:** Proper handling of invalid operations and division by zero must result in the output `"Error"`.
+- **Version Control:** Proper use of branches, consistent commits, and effective merging practices.
 
 ## Submission and Testing
+
 - **Testing Process:** Tests will be run as needed when your team requests a progress check. Ensure all changes have been merged into the main branch before requesting a test run.
-- **Output Requirements:** Make sure the result of your operations is correctly printed to the console. Any incorrect or missing output will result in a reduction in points.
+- **Output Requirements:** Make sure the result of your operations is correctly printed to the console, and `"Error"` is printed for invalid cases. Any incorrect or missing output will result in a reduction in points.
